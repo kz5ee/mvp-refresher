@@ -30,16 +30,16 @@
         {
             label1 = new Label();
             panel1 = new Panel();
-            tabControl1 = new TabControl();
-            tabPage1 = new TabPage();
-            button6 = new Button();
-            button5 = new Button();
-            button4 = new Button();
-            button3 = new Button();
+            petTabList = new TabControl();
+            petListTab = new TabPage();
+            deletePet = new Button();
+            editPet = new Button();
+            addNewPet = new Button();
+            searchPet = new Button();
             searchText = new TextBox();
             label6 = new Label();
             dataGridView1 = new DataGridView();
-            tabPage2 = new TabPage();
+            petDetailsTab = new TabPage();
             cancel = new Button();
             petColorText = new TextBox();
             label5 = new Label();
@@ -47,14 +47,14 @@
             label4 = new Label();
             petNameText = new TextBox();
             label3 = new Label();
-            save = new Button();
+            savePet = new Button();
             petIdText = new TextBox();
             label2 = new Label();
             panel1.SuspendLayout();
-            tabControl1.SuspendLayout();
-            tabPage1.SuspendLayout();
+            petTabList.SuspendLayout();
+            petListTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            tabPage2.SuspendLayout();
+            petDetailsTab.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -76,69 +76,69 @@
             panel1.Size = new Size(1575, 150);
             panel1.TabIndex = 1;
             // 
-            // tabControl1
+            // petTabList
             // 
-            tabControl1.Controls.Add(tabPage1);
-            tabControl1.Controls.Add(tabPage2);
-            tabControl1.Dock = DockStyle.Fill;
-            tabControl1.Location = new Point(0, 150);
-            tabControl1.Name = "tabControl1";
-            tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1575, 574);
-            tabControl1.TabIndex = 2;
+            petTabList.Controls.Add(petListTab);
+            petTabList.Controls.Add(petDetailsTab);
+            petTabList.Dock = DockStyle.Fill;
+            petTabList.Location = new Point(0, 150);
+            petTabList.Name = "petTabList";
+            petTabList.SelectedIndex = 0;
+            petTabList.Size = new Size(1575, 574);
+            petTabList.TabIndex = 2;
             // 
-            // tabPage1
+            // petListTab
             // 
-            tabPage1.Controls.Add(button6);
-            tabPage1.Controls.Add(button5);
-            tabPage1.Controls.Add(button4);
-            tabPage1.Controls.Add(button3);
-            tabPage1.Controls.Add(searchText);
-            tabPage1.Controls.Add(label6);
-            tabPage1.Controls.Add(dataGridView1);
-            tabPage1.Location = new Point(4, 34);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1567, 536);
-            tabPage1.TabIndex = 0;
-            tabPage1.Text = "Pet List";
-            tabPage1.UseVisualStyleBackColor = true;
+            petListTab.Controls.Add(deletePet);
+            petListTab.Controls.Add(editPet);
+            petListTab.Controls.Add(addNewPet);
+            petListTab.Controls.Add(searchPet);
+            petListTab.Controls.Add(searchText);
+            petListTab.Controls.Add(label6);
+            petListTab.Controls.Add(dataGridView1);
+            petListTab.Location = new Point(4, 34);
+            petListTab.Name = "petListTab";
+            petListTab.Padding = new Padding(3);
+            petListTab.Size = new Size(1567, 536);
+            petListTab.TabIndex = 0;
+            petListTab.Text = "Pet List";
+            petListTab.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // deletePet
             // 
-            button6.Location = new Point(1302, 226);
-            button6.Name = "button6";
-            button6.Size = new Size(112, 34);
-            button6.TabIndex = 16;
-            button6.Text = "Delete";
-            button6.UseVisualStyleBackColor = true;
+            deletePet.Location = new Point(1302, 226);
+            deletePet.Name = "deletePet";
+            deletePet.Size = new Size(112, 34);
+            deletePet.TabIndex = 16;
+            deletePet.Text = "Delete";
+            deletePet.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // editPet
             // 
-            button5.Location = new Point(1302, 176);
-            button5.Name = "button5";
-            button5.Size = new Size(112, 34);
-            button5.TabIndex = 15;
-            button5.Text = "Edit";
-            button5.UseVisualStyleBackColor = true;
+            editPet.Location = new Point(1302, 176);
+            editPet.Name = "editPet";
+            editPet.Size = new Size(112, 34);
+            editPet.TabIndex = 15;
+            editPet.Text = "Edit";
+            editPet.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // addNewPet
             // 
-            button4.Location = new Point(1302, 125);
-            button4.Name = "button4";
-            button4.Size = new Size(112, 34);
-            button4.TabIndex = 14;
-            button4.Text = "Add New";
-            button4.UseVisualStyleBackColor = true;
+            addNewPet.Location = new Point(1302, 125);
+            addNewPet.Name = "addNewPet";
+            addNewPet.Size = new Size(112, 34);
+            addNewPet.TabIndex = 14;
+            addNewPet.Text = "Add New";
+            addNewPet.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // searchPet
             // 
-            button3.Location = new Point(1184, 65);
-            button3.Name = "button3";
-            button3.Size = new Size(112, 34);
-            button3.TabIndex = 13;
-            button3.Text = "Search";
-            button3.UseVisualStyleBackColor = true;
+            searchPet.Location = new Point(1184, 65);
+            searchPet.Name = "searchPet";
+            searchPet.Size = new Size(112, 34);
+            searchPet.TabIndex = 13;
+            searchPet.Text = "Search";
+            searchPet.UseVisualStyleBackColor = true;
             // 
             // searchText
             // 
@@ -166,25 +166,25 @@
             dataGridView1.Size = new Size(1263, 403);
             dataGridView1.TabIndex = 0;
             // 
-            // tabPage2
+            // petDetailsTab
             // 
-            tabPage2.Controls.Add(cancel);
-            tabPage2.Controls.Add(petColorText);
-            tabPage2.Controls.Add(label5);
-            tabPage2.Controls.Add(petTypeText);
-            tabPage2.Controls.Add(label4);
-            tabPage2.Controls.Add(petNameText);
-            tabPage2.Controls.Add(label3);
-            tabPage2.Controls.Add(save);
-            tabPage2.Controls.Add(petIdText);
-            tabPage2.Controls.Add(label2);
-            tabPage2.Location = new Point(4, 34);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1567, 536);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "Pet Details";
-            tabPage2.UseVisualStyleBackColor = true;
+            petDetailsTab.Controls.Add(cancel);
+            petDetailsTab.Controls.Add(petColorText);
+            petDetailsTab.Controls.Add(label5);
+            petDetailsTab.Controls.Add(petTypeText);
+            petDetailsTab.Controls.Add(label4);
+            petDetailsTab.Controls.Add(petNameText);
+            petDetailsTab.Controls.Add(label3);
+            petDetailsTab.Controls.Add(savePet);
+            petDetailsTab.Controls.Add(petIdText);
+            petDetailsTab.Controls.Add(label2);
+            petDetailsTab.Location = new Point(4, 34);
+            petDetailsTab.Name = "petDetailsTab";
+            petDetailsTab.Padding = new Padding(3);
+            petDetailsTab.Size = new Size(1567, 536);
+            petDetailsTab.TabIndex = 1;
+            petDetailsTab.Text = "Pet Details";
+            petDetailsTab.UseVisualStyleBackColor = true;
             // 
             // cancel
             // 
@@ -250,15 +250,15 @@
             label3.TabIndex = 13;
             label3.Text = "Pet name";
             // 
-            // save
+            // savePet
             // 
-            save.BackColor = Color.White;
-            save.Location = new Point(53, 361);
-            save.Name = "save";
-            save.Size = new Size(158, 61);
-            save.TabIndex = 12;
-            save.Text = "Save";
-            save.UseVisualStyleBackColor = false;
+            savePet.BackColor = Color.White;
+            savePet.Location = new Point(53, 361);
+            savePet.Name = "savePet";
+            savePet.Size = new Size(158, 61);
+            savePet.TabIndex = 12;
+            savePet.Text = "Save";
+            savePet.UseVisualStyleBackColor = false;
             // 
             // petIdText
             // 
@@ -283,18 +283,18 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1575, 724);
-            Controls.Add(tabControl1);
+            Controls.Add(petTabList);
             Controls.Add(panel1);
             Name = "PetView";
             Text = "PetView";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            tabControl1.ResumeLayout(false);
-            tabPage1.ResumeLayout(false);
-            tabPage1.PerformLayout();
+            petTabList.ResumeLayout(false);
+            petListTab.ResumeLayout(false);
+            petListTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            tabPage2.ResumeLayout(false);
-            tabPage2.PerformLayout();
+            petDetailsTab.ResumeLayout(false);
+            petDetailsTab.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -302,10 +302,10 @@
 
         private Label label1;
         private Panel panel1;
-        private TabControl tabControl1;
-        private TabPage tabPage1;
-        private TabPage tabPage2;
-        private Button button3;
+        private TabControl petTabList;
+        private TabPage petListTab;
+        private TabPage petDetailsTab;
+        private Button searchPet;
         private TextBox searchText;
         private Label label6;
         private DataGridView dataGridView1;
@@ -316,11 +316,11 @@
         private Label label4;
         private TextBox petNameText;
         private Label label3;
-        private Button save;
+        private Button savePet;
         private TextBox petIdText;
         private Label label2;
-        private Button button6;
-        private Button button5;
-        private Button button4;
+        private Button deletePet;
+        private Button editPet;
+        private Button addNewPet;
     }
 }

@@ -20,6 +20,21 @@ namespace mvp_refresher.Views
         public PetView()
         {
             InitializeComponent();
+            AssociateAndRaiseViewEvents();
+            petTabList.TabPages.Remove(petDetailsTab);
+        }
+
+        private void AssociateAndRaiseViewEvents()
+        {
+            //Search
+            searchPet.Click += delegate { SearchEvent?.Invoke(this, EventArgs.Empty); };
+            searchText.KeyDown += (s, e) =>
+            {
+                if (e.KeyCode == Keys.Enter)
+                    SearchEvent?.Invoke(this, EventArgs.Empty);
+            };
+
+
         }
 
         public string PetId 
