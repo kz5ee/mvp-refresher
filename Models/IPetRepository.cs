@@ -12,6 +12,6 @@ namespace mvp_refresher.Models
         void Edit(PetModel petModel);
         void Delete(int id);
         IEnumerable<PetModel> GetAll();
-        IEnumerable<PetModel> GetByValue();
+        IEnumerable<PetModel> GetByValue(string value);
     }
 }
