@@ -30,6 +30,7 @@
         {
             label1 = new Label();
             panel1 = new Panel();
+            closeForm = new Button();
             petTabList = new TabControl();
             petListTab = new TabPage();
             deletePet = new Button();
@@ -69,12 +70,24 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(closeForm);
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(1575, 150);
             panel1.TabIndex = 1;
+            // 
+            // closeForm
+            // 
+            closeForm.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            closeForm.BackColor = Color.White;
+            closeForm.Location = new Point(1521, 32);
+            closeForm.Name = "closeForm";
+            closeForm.Size = new Size(42, 34);
+            closeForm.TabIndex = 1;
+            closeForm.Text = "X";
+            closeForm.UseVisualStyleBackColor = false;
             // 
             // petTabList
             // 
@@ -106,6 +119,7 @@
             // 
             // deletePet
             // 
+            deletePet.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             deletePet.Location = new Point(1302, 226);
             deletePet.Name = "deletePet";
             deletePet.Size = new Size(112, 34);
@@ -115,6 +129,7 @@
             // 
             // editPet
             // 
+            editPet.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             editPet.Location = new Point(1302, 176);
             editPet.Name = "editPet";
             editPet.Size = new Size(112, 34);
@@ -124,6 +139,7 @@
             // 
             // addNewPet
             // 
+            addNewPet.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             addNewPet.Location = new Point(1302, 125);
             addNewPet.Name = "addNewPet";
             addNewPet.Size = new Size(112, 34);
@@ -133,6 +149,7 @@
             // 
             // searchPet
             // 
+            searchPet.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             searchPet.Location = new Point(1184, 65);
             searchPet.Name = "searchPet";
             searchPet.Size = new Size(112, 34);
@@ -142,6 +159,7 @@
             // 
             // searchText
             // 
+            searchText.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             searchText.Location = new Point(33, 68);
             searchText.Name = "searchText";
             searchText.Size = new Size(1136, 31);
@@ -159,6 +177,8 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(33, 125);
             dataGridView1.Name = "dataGridView1";
@@ -322,5 +342,6 @@
         private Button deletePet;
         private Button editPet;
         private Button addNewPet;
+        private Button closeForm;
     }
 }

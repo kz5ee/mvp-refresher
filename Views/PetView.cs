@@ -22,6 +22,7 @@ namespace mvp_refresher.Views
             InitializeComponent();
             AssociateAndRaiseViewEvents();
             petTabList.TabPages.Remove(petDetailsTab);
+            closeForm.Click += delegate { this.Close(); };
         }
 
         private void AssociateAndRaiseViewEvents()
@@ -88,6 +89,26 @@ namespace mvp_refresher.Views
         public void SetPetListBindingSource(BindingSource petList)
         {
             dataGridView1.DataSource = petList;
+        }
+
+        //Singleton pattern (Open a single form instance)
+        private static PetView instance;
+        public static PetView GetInstace(Form parentContainer)
+        {
+            if (instance == null || instance.IsDisposed)
+            {
+                instance = new PetView();
+                instance.MdiParent = parentContainer;
+                instance.FormBorderStyle = FormBorderStyle.None;
+                instance.Dock = DockStyle.Fill;
+            }
+            else
+            {
+                if (instance.WindowState == FormWindowState.Minimized)
+                    instance.WindowState = FormWindowState.Normal;
+                instance.BringToFront();
+            }
+            return instance;
         }
     }
 }

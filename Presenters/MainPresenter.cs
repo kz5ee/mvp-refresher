@@ -23,7 +23,7 @@ namespace mvp_refresher.Presenters
 
         private void ShowPetsView(object sender, EventArgs e) 
         {
-            IPetView view = new PetView();
+            IPetView view = PetView.GetInstace((Form)mainView);
             IPetRepository repository = new PetRepository(sqlConnectionString);
             new PetPresenter(view, repository);
         }
