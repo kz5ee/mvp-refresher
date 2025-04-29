@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
 using Microsoft.Data;
 using mvp_refresher.Models;
+using System.Data;
 
 namespace mvp_refresher.Repositories
 {
     public class PetRepository : BaseRepository, IPetRepository
     {
+        public PetRepository()
+        {
+        }
 
         //Constructor
         public PetRepository(string connectionString)
@@ -64,6 +68,8 @@ namespace mvp_refresher.Repositories
         public IEnumerable<PetModel> GetByValue(string value)
         {
             var petList = new List<PetModel>();
+            int petId = int.TryParse(value, out _) ? Convert.ToInt32(value) : 0;
+            string petName = value;
             using (var connection = new SqlConnection(connectionString))
             using (var command = new SqlCommand())
             {
@@ -72,7 +78,8 @@ namespace mvp_refresher.Repositories
                 command.CommandText = @"SELECT * FROM Pet 
                                                                  WHERE Pet_Id=@id or Pet_Name LIKE @name+'%'
                                                                  ORDER BY Pet_Id DESC";
-
+                command.Parameters.Add("@id", SqlDbType.Int).Value = petId;
+                command.Parameters.Add("@name", SqlDbType.NVarChar).Value = petName;
                 using (var reader = command.ExecuteReader())
                 {
                     while (reader.Read())

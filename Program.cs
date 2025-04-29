@@ -1,3 +1,9 @@
+using mvp_refresher.Models;
+using mvp_refresher.Presenters;
+using mvp_refresher.Repositories;
+using mvp_refresher.Views;
+using System.Configuration;
+
 namespace mvp_refresher
 {
     internal static class Program
@@ -11,7 +17,11 @@ namespace mvp_refresher
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            string connectionString = ConfigurationManager.ConnectionStrings["SqlConnectionString"].ConnectionString;
+            IPetView view = new PetView();
+            IPetRepository repository = new PetRepository(connectionString);
+            new PetPresenter(view, repository);
+            Application.Run((Form)view);
         }
     }
 }

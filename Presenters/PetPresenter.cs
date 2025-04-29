@@ -15,7 +15,7 @@ namespace mvp_refresher.Presenters
         private BindingSource petsBindingSource;
         private IEnumerable<PetModel> petList;
 
-        public PetPresenter()
+        public PetPresenter(IPetView view, IPetRepository repository)
         {
             petsBindingSource = new BindingSource();
             this.view = view;
