@@ -17,10 +17,9 @@ namespace mvp_refresher
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            string connectionString = ConfigurationManager.ConnectionStrings["SqlConnectionString"].ConnectionString;
-            IPetView view = new PetView();
-            IPetRepository repository = new PetRepository(connectionString);
-            new PetPresenter(view, repository);
+            string sqlConnectionString = ConfigurationManager.ConnectionStrings["SqlConnectionString"].ConnectionString;
+            IMainView view = new MainView();
+            new MainPresenter(view, sqlConnectionString);
             Application.Run((Form)view);
         }
     }
