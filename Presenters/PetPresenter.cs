@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,27 +49,81 @@ namespace mvp_refresher.Presenters
 
         private void CancelAction(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            CleanViewFields();
         }
 
         private void SavePet(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            var model = new PetModel();
+            model.Id = Convert.ToInt32(view.PetId);
+            model.Name = view.PetName;
+            model.Type = view.PetType;
+            model.Color = view.PetColor;
+
+            try
+            {
+                new Common.ModelDataValidation().Validate(model);
+
+                if(view.IsEditing)
+                {
+                    repository.Edit(model);
+                    view.Message = "Pet edited successfully";
+                }
+                else
+                {
+                    repository.Add(model);
+                    view.Message = "Pet added successfully";
+                }
+                view.IsSuccessful = true;
+                LoadAllPetList();
+                CleanViewFields();
+            }
+            catch (Exception ex) 
+            {
+                view.IsSuccessful = false;
+                view.Message = ex.Message;
+            }
+        }
+
+        private void CleanViewFields()
+        {
+            view.PetId = "0";
+            view.PetName = string.Empty;
+            view.PetType = string.Empty;
+            view.PetColor = string.Empty;
         }
 
         private void DeletePet(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var pet = (PetModel)petsBindingSource.Current;
+                repository.Delete(pet.Id);
+                view.IsSuccessful = true;
+                view.Message = "Pet deleted successfully";
+                LoadAllPetList();
+            }
+            catch (Exception ex)
+            {
+                view.IsSuccessful=false;
+                view.Message = "An error occurred while deleting pet.";
+            }
+
         }
 
         private void EditPet(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            var pet = (PetModel)petsBindingSource.Current;
+            view.PetId = pet.Id.ToString();
+            view.PetName = pet.Name;
+            view.PetType = pet.Type;
+            view.PetColor = pet.Color;
+            view.IsEditing = true;
         }
 
         private void AddNewPet(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            view.IsEditing = false;
         }
 
         private void SearchPet(object? sender, EventArgs e)

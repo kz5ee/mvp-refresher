@@ -35,7 +35,56 @@ namespace mvp_refresher.Views
                     SearchEvent?.Invoke(this, EventArgs.Empty);
             };
 
+            //Add pet
+            addNewPet.Click += delegate 
+            { 
+                AddNewEvent?.Invoke(this, EventArgs.Empty);
+                petTabList.TabPages.Remove(petListTab);
+                petTabList.TabPages.Add(petDetailsTab);
+                petDetailsTab.Text = "Add new pet";
+            };
 
+            //Edit pet
+            editPet.Click += delegate 
+            { 
+                EditEvent?.Invoke(this, EventArgs.Empty);
+                petTabList.TabPages.Remove(petListTab);
+                petTabList.TabPages.Add(petDetailsTab);
+                petDetailsTab.Text = "Edit pet";
+            };
+
+            //Save pet
+            savePet.Click += delegate 
+            { 
+                SaveEvent?.Invoke(this, EventArgs.Empty);
+                if (isSuccessful)
+                {
+                    petTabList.TabPages.Remove(petDetailsTab);
+                    petTabList.TabPages.Add(petListTab);
+                }
+
+                MessageBox.Show(Message);
+            };
+
+            //Delete pet
+            deletePet.Click += delegate 
+            { 
+                var res = MessageBox.Show("Are you sure you want to delete this pet?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (res == DialogResult.Yes)
+                {
+                    DeleteEvent?.Invoke(this, EventArgs.Empty);
+                    MessageBox.Show(Message);
+                }
+            };
+
+            //Cancel
+            cancel.Click += delegate 
+            { 
+                CancelEvent?.Invoke(this, EventArgs.Empty);
+                petTabList.TabPages.Remove(petDetailsTab);
+                petTabList.TabPages.Add(petListTab);
+            };
         }
 
         public string PetId 

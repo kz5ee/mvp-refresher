@@ -285,8 +285,10 @@
             petIdText.Font = new Font("Segoe UI", 12F);
             petIdText.Location = new Point(53, 87);
             petIdText.Name = "petIdText";
+            petIdText.ReadOnly = true;
             petIdText.Size = new Size(239, 39);
             petIdText.TabIndex = 11;
+            petIdText.Text = "0";
             // 
             // label2
             // 
